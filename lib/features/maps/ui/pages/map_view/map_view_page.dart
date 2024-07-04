@@ -25,7 +25,9 @@ class _MapViewPageState extends State<MapViewPage> {
   @override
   void initState() {
     _bloc = getIt<MapViewBloc>();
-    _bloc.getLocation();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _bloc.getLocation();
+    });
     super.initState();
   }
 
@@ -79,6 +81,7 @@ class _MapViewPageState extends State<MapViewPage> {
               Marker(
                 markerId: const MarkerId('MyLocation'),
                 position: latLng,
+                icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
                 infoWindow: const InfoWindow(
                   title: 'You',
                 ),

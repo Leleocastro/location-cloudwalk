@@ -1,11 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class LocationDTO {
   final double latitude;
   final double longitude;
 
-  LocationDTO({
+  const LocationDTO({
     required this.latitude,
     required this.longitude,
   });
